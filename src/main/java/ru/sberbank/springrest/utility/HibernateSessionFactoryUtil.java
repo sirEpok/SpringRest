@@ -3,6 +3,7 @@ package ru.sberbank.springrest.utility;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import ru.sberbank.springrest.model.BankCard;
 import ru.sberbank.springrest.model.Client;
 
 public class HibernateSessionFactoryUtil {
@@ -15,7 +16,7 @@ public class HibernateSessionFactoryUtil {
             try {
                 Configuration configuration = new Configuration().configure();
                 configuration.addAnnotatedClass(Client.class);
-                //configuration.addAnnotatedClass(Auto.class);
+                configuration.addAnnotatedClass(BankCard.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
 

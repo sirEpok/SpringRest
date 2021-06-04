@@ -5,13 +5,15 @@ import javax.persistence.*;
 @Table(name = "bank_cards")
 @Entity
 public class BankCard {
-    @Id
+
     @Column(name = "bank_account_number")
     private String bankAccountNumber;
+    @Id
     @Column(name = "number_card")
-    private String numberCard;
+    private int numberCard;
     @Column(name = "balance")
     private double balance;
+
 
     public String getBankAccountNumber() {
         return bankAccountNumber;
@@ -21,11 +23,11 @@ public class BankCard {
         this.bankAccountNumber = bankAccountNumber;
     }
 
-    public String getNumberCard() {
+    public int getNumberCard() {
         return numberCard;
     }
 
-    public void setNumberCard(String numberCard) {
+    public void setNumberCard(int numberCard) {
         this.numberCard = numberCard;
     }
 

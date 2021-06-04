@@ -15,29 +15,29 @@ public class ClientServiceImpl implements ClientService{
     // Хранилище клиентов
     //private static final Map<Integer, Client> CLIENT_REPOSITORY_MAP = new HashMap<>();
 
-    // Переменная для генерации ID клиента
     private ClientDAO cdao = new ClientDAO();
-    private static final AtomicInteger CLIENT_ID_HOLDER = new AtomicInteger();
+    // Переменная для генерации ID клиента
+    //private static final AtomicInteger CLIENT_ID_HOLDER = new AtomicInteger();
 
     public ClientServiceImpl() {}
 
-//    @Override
-//    public void create(Client client) {
+    @Override
+    public Client read(int id) {
+        return cdao.findByID(id);
+    }
+
+    @Override
+    public void create(Client client) {
 //        final int clientId = CLIENT_ID_HOLDER.incrementAndGet();
 //        client.setId(clientId);
-//        cdao.save(client);
-//    }
-//
+        cdao.save(client);
+    }
+
 //    @Override
 //    public List<Client> readAll() {
 //        return new ArrayList<>(cdao.findAll());
 //    }
-//
-//    @Override
-//    public Client read(int id) {
-//        return cdao.findByID(id);
-//    }
-//
+
 //    @Override
 //    public boolean update(Client client, int id) {
 //        if (cdao.findByID(id) != null) {
@@ -48,7 +48,7 @@ public class ClientServiceImpl implements ClientService{
 //
 //        return false;
 //    }
-
+//
 //    @Override
 //    public boolean delete(int id) {
 //        return cdao.remove(id) != null;

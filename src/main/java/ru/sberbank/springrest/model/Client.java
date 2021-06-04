@@ -1,6 +1,7 @@
 package ru.sberbank.springrest.model;
 
 import javax.persistence.*;
+import java.util.*;
 
 @Table(name = "clients")
 @Entity
